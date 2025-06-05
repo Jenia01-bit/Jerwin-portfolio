@@ -1,0 +1,124 @@
+from zipfile import ZipFile
+import os
+
+html_content = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jerwin Lucero Claros | Video Editor & Designer</title>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: #212529;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.5rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      color: #ccc;
+    }
+    section {
+      padding: 2rem 10%;
+    }
+    .about, .services, .portfolio, .contact {
+      background: white;
+      margin: 2rem auto;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h2 {
+      color: #212529;
+      margin-bottom: 1rem;
+    }
+    .services ul, .portfolio ul {
+      list-style: none;
+      padding: 0;
+    }
+    .services li, .portfolio li {
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      background: #e9ecef;
+      border-radius: 4px;
+    }
+    .contact p {
+      font-size: 1.1rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #212529;
+      color: #bbb;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Jerwin Lucero Claros</h1>
+    <p>Video Editor & Designer</p>
+  </header>
+
+  <section class="about">
+    <h2>About Me</h2>
+    <p>Hello! I'm Jerwin, a passionate video editor and designer with a keen eye for visual storytelling. I help individuals, brands, and businesses bring their ideas to life through compelling visuals and polished edits. Whether it’s social media content, YouTube videos, or branding visuals, I aim to deliver impactful work that connects and resonates.</p>
+  </section>
+
+  <section class="services">
+    <h2>Services</h2>
+    <ul>
+      <li>Video Editing (YouTube, TikTok, Reels)</li>
+      <li>Motion Graphics</li>
+      <li>Logo Animation</li>
+      <li>Social Media Visual Design</li>
+    </ul>
+  </section>
+
+  <section class="portfolio">
+    <h2>Portfolio</h2>
+    <ul>
+      <li>Sample Project 1 – [Coming Soon]</li>
+      <li>Sample Project 2 – [Coming Soon]</li>
+      <li>Sample Project 3 – [Coming Soon]</li>
+    </ul>
+  </section>
+
+  <section class="contact">
+    <h2>Contact</h2>
+    <p>Feel free to reach out for collaborations or inquiries:</p>
+    <p>Email: <a href="mailto:jerwinclaros20@gmail.com">jerwinclaros20@gmail.com</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Jerwin Lucero Claros</p>
+  </footer>
+</body>
+</html>
+"""
+
+# Save to file
+with open("index.html", "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+# Create zip
+with ZipFile("jerwin_personal_website.zip", "w") as zipf:
+    zipf.write("index.html")
+
+# Clean up original HTML
+os.remove("index.html")
+
+print("Website zip created: jerwin_personal_website.zip")
